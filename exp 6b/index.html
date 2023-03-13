@@ -44,7 +44,7 @@
 	<form ng-app="myApp" ng-controller="myCtrl" ng-submit="login()">
 		<input type="text" ng-model="name" ng-class="{'error': nameError}" placeholder="Name" required>
 		<p class="error-message" ng-show="nameError">{{nameErrorMessage}}</p>
-		<input type="email" ng-model="email" ng-class="{'error': emailError}" placeholder="Email" required>
+		<input type="email" ng-model="email" ng-class="{'error': emailError}" placeholder="username" required>
 		<p class="error-message" ng-show="emailError">{{emailErrorMessage}}</p>
 		<input type="password" ng-model="password" ng-class="{'error': passwordError}" placeholder="Password" required>
 		<p class="error-message" ng-show="passwordError">{{passwordErrorMessage}}</p>
@@ -55,9 +55,9 @@
 		var app = angular.module('myApp', []);
 		app.controller('myCtrl', function($scope) {
 			$scope.login = function() {
-				if(!$scope.name || $scope.name.length < 3 || $scope.name.length > 8) {
+				if(!$scope.name || $scope.name.length < 3 ) {
 					$scope.nameError = true;
-					$scope.nameErrorMessage = 'Name must be between 3 and 8 characters';
+					$scope.nameErrorMessage = 'Name must be between greater than 3 characters';
 				} else {
 					$scope.nameError = false;
 				}
